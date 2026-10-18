@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: MIT
+// BS3G Gold VAULT — World's First CERN-Indexed Token
+// DOI: 10.5281/zenodo.23340833
+// Creator, Maker, Owner: Socrates Kargbo
+// Copyright (c) 2026 Socrates Kargbo
+
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract BS3G is ERC20, Ownable {
+    string public constant TOKEN_INFO = "World's First CERN-Indexed Token DOI:10.5281/zenodo.23340833";
+    
+    constructor() ERC20("BS3G Gold Vault", "BS3G") Ownable(msg.sender) {
+        uint256 totalSupply = 4858784 * 10 ** decimals();
+        _mint(msg.sender, totalSupply);
+    }
+    
+    // CERN Permanent Reference
+    function getCERN_Doi() public pure returns (string memory) {
+        return "10.5281/zenodo.23340833";
+    }
+    
+    function getCreator() public pure returns (string memory) {
+        return "Socrates Kargbo - Creator, Maker, Owner";
+    }
+}
